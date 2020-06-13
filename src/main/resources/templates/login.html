@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>Login page</title>
+    <link th:href="@{static/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{static/css/login.css}" rel="stylesheet">
+    <script th:src="@{static/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{static/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div class="container">
+    <form class="form-signin" name="loginForm" method="post" action="/doLogin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <lable for="userName" class="sr-only">User Name</lable>
+        <input id="userName" class="form-control" name="username" type="text" value="" placeholder="User Name" required autofocus/>
+        <lable for="passWord" class="sr-only" >Password</lable>
+        <input id="passWord" class="form-control" name="password" type="text" value="" placeholder="Password" required autofocus />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    </div>
+</body>
+</html>
+    

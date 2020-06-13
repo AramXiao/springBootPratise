@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>User list</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>User id</th>
+            <th>User name</th>
+            <th>User age</th>
+            <th>Address</th>
+            <th>Dept</th>
+        </thead>
+        <tr th:each="user:${pageInfo.getContent()}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.address}"></td>
+            <td th:text="${user.dept.name}"></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <div class="pagelist">
+                    <p>当前<span th:text="${pageInfo.getNumber()+1}"></span>页，总共<span th:text="${pageInfo.totalPages}">页</span>
+                        ，共<span th:text="${pageInfo.totalElements}"></span>条记录
+                        <a th:href="@{list}">首页</a>
+                        <a th:href="@{list(pageNum=${pageInfo.hasPrevious()}?${pageInfo.getNumber()}:1)}">上一页</a>
+                        <a th:href="@{list(pageNum=${pageInfo.hasNext()}?${pageInfo.getNumber()+2}:${pageInfo.totalPages})}">下一页</a>
+                        <a th:href="@{list(pageNum=${pageInfo.totalPages})}">尾页</a>
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+    

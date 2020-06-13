@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>book</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>编号</td>
+        <td>作者</td>
+        <td>书名</td>
+    </tr>
+    <tr th:each="book : ${bookList}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            公共数据信息<br>
+            <span th:text="${'Age:'+md.age+',gender:'+md.gender}"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+    
